@@ -20,7 +20,7 @@ public class NumberSource {
     {
         data = new ArrayList<Integer>(SIZE);
 
-        for ( int i = 0 ; i < SIZE; ) // Возможно хардкод
+        for ( int i = 0 ; i < SIZE; )
         {
             data.add(++i);
         }

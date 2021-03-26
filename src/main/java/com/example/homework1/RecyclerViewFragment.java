@@ -19,21 +19,13 @@ public class RecyclerViewFragment extends Fragment {
 
     private OnNumberClickListener onClickListener;
 
+
+    public RecyclerViewFragment() { }
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         onClickListener = (OnNumberClickListener)  context;
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        onClickListener = null;
-    }
-
-    public RecyclerViewFragment() {
-        setRetainInstance(true);
-        // Required empty public constructor
     }
 
     @Override
@@ -76,4 +68,11 @@ public class RecyclerViewFragment extends Fragment {
 
         return view;
     }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        onClickListener = null;
+    }
+
 }

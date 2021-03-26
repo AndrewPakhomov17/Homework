@@ -1,5 +1,6 @@
 package com.example.homework1;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -12,39 +13,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link NumberFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class NumberFragment extends Fragment {
 
     private int number;
 
-    private static final String  KEY_PARAM = "number";
+    private static final String  KEY_PARAM = "NUMBER";
+
+    public NumberFragment()
+    {}
 
     public NumberFragment(int _value)
     {
-        setRetainInstance(true);
         number = _value;
     }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt(KEY_PARAM,number);
-    }
-
- /*   @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
-        if(savedInstanceState != null)
-        {
-           number = savedInstanceState.getInt(KEY_PARAM);
-        }
-    }
-    */
-
 
 
     @Override
@@ -54,7 +36,9 @@ public class NumberFragment extends Fragment {
         {
             number = savedInstanceState.getInt(KEY_PARAM);
         }
+
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,9 +61,12 @@ public class NumberFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(KEY_PARAM,number);
     }
+
+
 }
