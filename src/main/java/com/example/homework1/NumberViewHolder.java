@@ -6,23 +6,20 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public class NumberViewHolder extends RecyclerView.ViewHolder  {
+public class NumberViewHolder extends RecyclerView.ViewHolder {
 
     private TextView data;
 
-   private int number;
+    private int number;
 
-    public NumberViewHolder(View itemView,OnNumberClickListener clickListener)
-    {
+    public NumberViewHolder(View itemView, OnNumberClickListener clickListener) {
         super(itemView);
 
         data = itemView.findViewById(R.id.number);
 
-        data.setOnClickListener(new View.OnClickListener()
-        {
+        data.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 clickListener.onClick(number);
             }
 
@@ -31,15 +28,12 @@ public class NumberViewHolder extends RecyclerView.ViewHolder  {
     }
 
 
-
-    public void bind(int value)
-    {
+    public void bind(int value) {
         number = value;
 
-        if(value % 2 == 0 ) {
+        if (value % 2 == 0) {
             data.setTextColor(Color.RED);
-        }
-        else{
+        } else {
             data.setTextColor(Color.BLUE);
         }
 

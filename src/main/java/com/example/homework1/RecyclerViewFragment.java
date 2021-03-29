@@ -20,12 +20,13 @@ public class RecyclerViewFragment extends Fragment {
     private OnNumberClickListener onClickListener;
 
 
-    public RecyclerViewFragment() { }
+    public RecyclerViewFragment() {
+    }
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        onClickListener = (OnNumberClickListener)  context;
+        onClickListener = (OnNumberClickListener) context;
     }
 
     @Override
@@ -37,28 +38,24 @@ public class RecyclerViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
+        View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
-        RecyclerView recyclerView =view.findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
 
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             recyclerView.setLayoutManager(new GridLayoutManager(container.getContext(), 4));
-        }
-        else
-        {
+        } else {
             recyclerView.setLayoutManager(new GridLayoutManager(container.getContext(), 3));
         }
 
         recyclerView.setAdapter(new NumberAdapter(onClickListener));
-       // recyclerView.setAdapter(new NumberAdapter());
+        // recyclerView.setAdapter(new NumberAdapter());
 
         Button button = view.findViewById(R.id.button);
 
-        button.setOnClickListener(new View.OnClickListener()
-        {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 NumberAdapter numberAdapter = (NumberAdapter) recyclerView.getAdapter();
 
                 numberAdapter.insert(numberAdapter.getItemCount() + 1);

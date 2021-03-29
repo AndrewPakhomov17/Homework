@@ -18,13 +18,12 @@ public class NumberFragment extends Fragment {
 
     private int number;
 
-    private static final String  KEY_PARAM = "NUMBER";
+    private static final String KEY_PARAM = "NUMBER";
 
-    public NumberFragment()
-    {}
+    public NumberFragment() {
+    }
 
-    public NumberFragment(int _value)
-    {
+    public NumberFragment(int _value) {
         number = _value;
     }
 
@@ -32,8 +31,7 @@ public class NumberFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(savedInstanceState != null)
-        {
+        if (savedInstanceState != null) {
             number = savedInstanceState.getInt(KEY_PARAM);
         }
 
@@ -48,10 +46,9 @@ public class NumberFragment extends Fragment {
 
         TextView textView = view.findViewById(R.id.number);
 
-        if(number % 2 == 0 ) {
+        if (number % 2 == 0) {
             textView.setTextColor(Color.RED);
-        }
-        else{
+        } else {
             textView.setTextColor(Color.BLUE);
         }
 
@@ -65,7 +62,7 @@ public class NumberFragment extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(KEY_PARAM,number);
+        outState.putInt(KEY_PARAM, number);
     }
 
 
